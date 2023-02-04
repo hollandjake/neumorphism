@@ -4,6 +4,8 @@ SASS and Javascript utilities for a popular design trend called Neumorphism.
 
 Contributions are welcome.
 
+## [Demo](https://hollandjake.github.io/neumorphism/)
+
 ## Files
 
 ### JavaScript
