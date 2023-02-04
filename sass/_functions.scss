@@ -1,0 +1,52 @@
+@use "sass:color";
+@use "sass:math";
+
+@mixin emboss(
+  $background-color: #fff,
+  $text-light: #000,
+  $text-dark: #fff,
+  $height: 0,
+  $pressure: 0,
+  $intensity: 0.3,
+  $direction: 135deg,
+) {
+
+  $intensity: math.clamp(0%, $intensity * 100%, 100%);
+  $raised: $height >= 0;
+  $distance: math.abs($height);
+  $blur: $distance * 2;
+
+  // Color
+  $shadow-color: color.adjust($background-color, $lightness: -1 * $intensity);
+  $highlight-color: color.adjust($background-color, $lightness: $intensity);
+
+  $upper-gradient-color: color.adjust($background-color, $lightness: -1 * $pressure);
+  $lower-gradient-color: color.adjust($background-color, $lightness: $pressure);
+
+  // Lighting
+  $position-x: math.round(math.sin($direction - 90deg) * $distance);
+  $position-y: math.round(math.cos($direction - 90deg) * $distance);
+
+
+  // Ensure type
+  @if unitless($position-x) {
+    $position-x: $position-x * 1px;
+  }
+  @if unitless($position-y) {
+    $position-y: $position-y * 1px;
+  }
+  @if unitless($blur) {
+    $blur: $blur * 1px;
+  }
+
+  // Render
+  background-image: linear-gradient($direction, $upper-gradient-color, $lower-gradient-color);
+  box-shadow: if($raised, null, inset) $position-x $position-y $blur $shadow-color,
+  if($raised, null, inset) -1 * $position-x -1 * $position-y $blur $highlight-color;
+  color: if(color.lightness(color.mix($upper-gradient-color, $lower-gradient-color)) > 50%, $text-light, $text-dark);
+
+  // Animation
+  transition-property: background-image, box-shadow, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
