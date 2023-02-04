@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Neumorphism - Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Neumorphism Example Site">
+
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" type="module"></script>
+</head>
+<body>
+<header>
+    <div class="logo neumorphism-js-animated">
+        <img src="https://fakeimg.pl/300/000,0/000/?text=LOGO" alt="logo"/>
+    </div>
+    <nav>
+        <a href="#" class="neumorphism-js-animated">Header Link</a>
+        <a href="#" class="neumorphism-js-animated">Header Link</a>
+    </nav>
+</header>
+<h1>Page heading</h1>
+<div class="main">
+    <div class="neumorphism-js-animated card" data-neu-height="10">
+        <h2>JS controlled buttons</h2>
+        <button class="neumorphism-js-animated" style="height: 3em">Nested button</button>
+        <button class="neumorphism-js-animated colored" style="height: 3em">Colored button</button>
+    </div>
+    <div class="neumorphism-sass card">
+        <h2>SASS controlled card</h2>
+        <div class="position-animation-container">
+            <div class="animated-circle-container">
+                <div class="neumorphism-sass-animated animated-circle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="neumorphism-sass card">
+        <h2>Lighting animation</h2>
+        <div class="lighting-animation-container">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div class="neumorphism-sass card">
+        <h2>Height variations</h2>
+        <div class="list">
+            <div class="neumorphism-js circle" data-neu-height="10">Out</div>
+            <div class="neumorphism-js circle" data-neu-height="0">Flat</div>
+            <div class="neumorphism-js circle" data-neu-height="-10">In</div>
+            <div class="neumorphism-js pill height-anim">Animated</div>
+        </div>
+    </div>
+    <div class="neumorphism-sass card">
+        <h2>Pressure variations</h2>
+        <div class="list">
+            <div class="neumorphism-js circle" data-neu-height="5" data-neu-pressure="-0.1">+tive</div>
+            <div class="neumorphism-js circle" data-neu-height="5" data-neu-pressure="0">0</div>
+            <div class="neumorphism-js circle" data-neu-height="5" data-neu-pressure="0.1">-tive</div>
+            <div class="neumorphism-js pill pressure-anim">Animated</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
